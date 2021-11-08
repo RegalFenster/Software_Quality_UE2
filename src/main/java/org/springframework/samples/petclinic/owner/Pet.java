@@ -31,6 +31,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -54,6 +56,7 @@ public class Pet extends NamedEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "type_id")
+	@Cascade(CascadeType.ALL)
 	private PetType type;
 
 	@ManyToOne
